@@ -25,7 +25,7 @@ class ImagePageContent extends StatelessWidget {
           Image.asset(
             imageAsset,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 24),
           Text(
             title,
             style: TextStyle(
@@ -34,7 +34,7 @@ class ImagePageContent extends StatelessWidget {
               color: colorConstants.appBlack,
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 16),
           Text(
             description,
             style: TextStyle(
@@ -43,17 +43,19 @@ class ImagePageContent extends StatelessWidget {
               color: colorConstants.appBlack,
             ),
           ),
+          const SizedBox(height: 32),
           GestureDetector(
             onTap: textFunction,
-            child: Text(
+            child: const Text(
               "view app on github",
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 22,
                 fontWeight: FontWeight.w800,
-                color: colorConstants.primaryColor,
+                color: Colors.blue,
               ),
             ),
           ),
+          const SizedBox(height: 16),
         ],
       ),
     );

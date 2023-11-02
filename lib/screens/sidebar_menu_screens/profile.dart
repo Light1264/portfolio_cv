@@ -26,8 +26,8 @@ class MyHomePage extends StatelessWidget {
     "umunubo.lg@gmail.com",
   ];
   final List<Icon> contactAddressIcons = [
-    Icon(Icons.phone_outlined),
-    Icon(Icons.mail_outline),
+    const Icon(Icons.phone_outlined),
+    const Icon(Icons.mail_outline),
   ];
 
   @override
@@ -59,7 +59,7 @@ class MyHomePage extends StatelessWidget {
           },
         ),
       ),
-      drawer: SidebarMenu(), // Hide the drawer on larger screens.
+      drawer: const SidebarMenu(), // Hide the drawer on larger screens.
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,7 +121,6 @@ class MyHomePage extends StatelessWidget {
                                   title: 'Terms of Service',
                                   url:
                                       "https://www.linkedin.com/in/elo-umunubo-236567238/"
-                                  // "https://github.com/Light1264",
                                   ),
                             ),
                           );

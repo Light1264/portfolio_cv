@@ -39,7 +39,7 @@ class CertificatesScreen extends StatelessWidget {
           },
         ),
       ),
-      drawer: SidebarMenu(), // Hide the drawer on larger screens.
+      drawer: const SidebarMenu(), // Hide the drawer on larger screens.
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +64,7 @@ class CertificatesScreen extends StatelessWidget {
                   HeaderText(
                     headerText:
                         "App Development Using Dart Programming Language",
-                    content: "Umunubo Elo",
+                    content: "Alison.com",
                   ),
                   SizedBox(
                     height: 24,
@@ -87,16 +87,15 @@ class CertificatesScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(24.0),
+            const Padding(
+              padding: EdgeInsets.all(24.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const HeaderText(
-                      headerText:
-                          "App Development Using Dart Programming Language",
-                      content: "Umunubo Elo"),
-                  const SizedBox(
+                  HeaderText(
+                      headerText: "Cross Platform Mobile Application Developer",
+                      content: "Deebug Institute"),
+                  SizedBox(
                     height: 24,
                   ),
                 ],

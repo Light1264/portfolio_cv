@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../main.dart';
+
 class PageContent extends StatelessWidget {
   final String title;
   final String description;
+  final String companyName;
 
-  PageContent({
-    required this.title,
-    required this.description,
-  });
+  const PageContent(
+      {required this.title,
+      required this.description,
+      required this.companyName});
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +21,30 @@ class PageContent extends StatelessWidget {
         children: <Widget>[
           Text(
             title,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+              color: colorConstants.appBlack,
+            ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 8),
+          Text(
+            companyName,
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w300,
+              color: colorConstants.appBlack,
+            ),
+          ),
+          const SizedBox(height: 24),
           Text(
             description,
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(
+              fontSize: 20,
+              color: colorConstants.appBlack,
+              fontWeight: FontWeight.w400,
+            ),
           ),
         ],
       ),

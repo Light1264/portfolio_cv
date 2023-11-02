@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_cv/components/header_widget.dart';
 import 'package:portfolio_cv/components/page_content.dart';
 import 'package:portfolio_cv/main.dart';
 import 'package:portfolio_cv/side_bar.dart';
@@ -19,7 +20,7 @@ class ProjectsScreen extends StatelessWidget {
     ImagePageContent(
       imageAsset: imageConstants.hockeyGameApp,
       title: textConstants.hockeyGameAppHeader,
-      description: 'This is the first page.',
+      description: textConstants.hockeyGameAppDescription,
       textFunction: () {
         Get.to(const ExploreWebview(
           title: 'Terms of Service',
@@ -30,7 +31,7 @@ class ProjectsScreen extends StatelessWidget {
     ImagePageContent(
       imageAsset: imageConstants.aiStoryGenerator,
       title: textConstants.aiStoryGeneratorAppHeader,
-      description: 'This is the second page.',
+      description: textConstants.aiStoryGeneratorAppDescription,
       textFunction: () {
         Get.to(const ExploreWebview(
           title: 'Terms of Service',
@@ -41,7 +42,7 @@ class ProjectsScreen extends StatelessWidget {
     ImagePageContent(
       imageAsset: imageConstants.eventPro,
       title: textConstants.eventProAppHeader,
-      description: 'This is the third page.',
+      description: textConstants.eventProAppDescription,
       textFunction: () {
         Get.to(const ExploreWebview(
           title: 'Terms of Service',
@@ -49,9 +50,21 @@ class ProjectsScreen extends StatelessWidget {
         ));
       },
     ),
-    PageContent(title: "", description: "description"),
-    PageContent(title: "", description: "description"),
-    PageContent(title: "Others", description: "description"),
+    PageContent(
+      title: textConstants.fortcoreAppHeader,
+      companyName: "Trusoft Limited - Lagos",
+      description: textConstants.fortcoreAppDescription,
+    ),
+    PageContent(
+      title: textConstants.pickloadAppHeader,
+      companyName: "Deebug institute/studio - Benin City",
+      description: textConstants.pickloadAppDescription,
+    ),
+    HeaderWidget(
+      headerText: textConstants.otherAppsHeader,
+      length: textConstants.otherApps.length,
+      content: textConstants.otherApps,
+    ),
   ];
 
   @override
@@ -73,13 +86,13 @@ class ProjectsScreen extends StatelessWidget {
         elevation: 1,
         automaticallyImplyLeading: false,
         leading: IconButton(
-          icon: Icon(Icons.menu), // Hamburger icon
+          icon: const Icon(Icons.menu), // Hamburger icon
           onPressed: () {
             _scaffoldKey.currentState?.openDrawer();
           },
         ),
       ),
-      drawer: SidebarMenu(), // Hide the drawer on larger screens.
+      drawer: const SidebarMenu(), // Hide the drawer on larger screens.
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
@@ -97,22 +110,30 @@ class ProjectsScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  icon: Icon(Icons.arrow_back),
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: colorConstants.primaryColor,
+                    size: 30,
+                  ),
                   onPressed: () {
                     if (_pageController.page != 0) {
                       _pageController.previousPage(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         curve: Curves.ease,
                       );
                     }
                   },
                 ),
                 IconButton(
-                  icon: Icon(Icons.arrow_forward),
+                  icon: Icon(
+                    Icons.arrow_forward,
+                    color: colorConstants.primaryColor,
+                    size: 30,
+                  ),
                   onPressed: () {
                     if (_pageController.page != pages.length - 1) {
                       _pageController.nextPage(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         curve: Curves.ease,
                       );
                     }
