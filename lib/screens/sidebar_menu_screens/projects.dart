@@ -54,6 +54,7 @@ class ProjectsScreen extends StatelessWidget {
       title: textConstants.fortcoreAppHeader,
       companyName: "Trusoft Limited - Lagos",
       description: textConstants.fortcoreAppDescription,
+      isPickload: false,
     ),
     PageContent(
       title: textConstants.pickloadAppHeader,

@@ -28,6 +28,7 @@ Find app in Google Play Store.""";
   final String fortcoreAppDescription = """A fintech application that was worked on by a team of developers, myself included.\n
 It helps users track their expenditures and save money with their various services like leasing """;
   final List<String> otherApps = [
+    "Card Validator",
     "Calculator app",
     "To_do app",
     "E_commerce app",

@@ -70,13 +70,19 @@ class _SidebarMenuState extends State<SidebarMenu> {
                       setState(() {
                         selectedIndex = index;
                       });
-                      if (index == 0) {
+                      print("object $selectedIndex");
+
+                      if (selectedIndex == 0) {
+                        Get.back();
                         Get.off(MyHomePage());
-                      } else if (index == 1) {
+                      } else if (selectedIndex == 1) {
+                        Get.back();
                         Get.off(ProjectsScreen());
-                      } else if (index == 2) {
+                      } else if (selectedIndex == 2) {
+                        Get.back();
                         Get.off(CertificatesScreen());
-                      } else if (index == 3) {
+                      } else if (selectedIndex == 3) {
+                        Get.back();
                         Get.off(WorkExperienceScreen());
                       }
                     },

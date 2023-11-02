@@ -47,6 +47,7 @@ class ApiClient extends GetConnect {
       if (_isSuccessCall(response)) {
         return response.body;
       } else {
+        ProgressDialogUtils.hideProgressDialog();
         throw response.body ?? 'Something Went Wrong!';
       }
     } catch (error, stackTrace) {
@@ -78,6 +79,7 @@ class ApiClient extends GetConnect {
       if (_isSuccessCall(response)) {
         return response.body;
       } else {
+        ProgressDialogUtils.hideProgressDialog();
         throw response.body ?? 'Something Went Wrong!';
       }
     } catch (error, stackTrace) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:portfolio_cv/main.dart';
+import 'package:portfolio_cv/screens/auth_screens/sign_in.dart';
 
 import '../core/app_export.dart';
 
@@ -45,7 +46,7 @@ showMyDialog(
           InkWell(
             onTap: () {
               localStorage.write("isLoggedIn", false);
-              SystemNavigator.pop();
+              Get.offAll(const SignInScreen());
             },
             child: const Text(
               "Yes",

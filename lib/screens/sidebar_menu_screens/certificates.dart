@@ -15,7 +15,6 @@ class CertificatesScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: colorConstants.backgroundColor,
       key: _scaffoldKey,
-
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -39,21 +38,16 @@ class CertificatesScreen extends StatelessWidget {
           },
         ),
       ),
-      drawer: const SidebarMenu(), // Hide the drawer on larger screens.
+      drawer: const SidebarMenu(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height / 2,
               width: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    imageConstants.dartCertificate,
-                  ),
-                  fit: BoxFit.cover,
-                ),
+              child: Image.asset(
+                imageConstants.dartCertificate,
               ),
             ),
             const Padding(
@@ -75,16 +69,11 @@ class CertificatesScreen extends StatelessWidget {
             const SizedBox(
               height: 32,
             ),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height / 2,
               width: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    imageConstants.deebugCertificate,
-                  ),
-                  fit: BoxFit.cover,
-                ),
+              child: Image.asset(
+                imageConstants.deebugCertificate,
               ),
             ),
             const Padding(

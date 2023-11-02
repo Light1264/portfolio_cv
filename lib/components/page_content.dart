@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_cv/utils/functions.dart';
 
 import '../main.dart';
 
@@ -6,11 +7,14 @@ class PageContent extends StatelessWidget {
   final String title;
   final String description;
   final String companyName;
+  final bool isPickload;
 
-  const PageContent(
-      {required this.title,
-      required this.description,
-      required this.companyName});
+  const PageContent({
+    required this.title,
+    required this.description,
+    required this.companyName,
+    this.isPickload = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +50,23 @@ class PageContent extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
+          const SizedBox(height: 32),
+          isPickload == true
+              ? GestureDetector(
+                  onTap: () {
+                    openExternalLink(
+                        "https://play.google.com/store/apps/details?id=com.pickload.pickloaduser");
+                  },
+                  child: const Text(
+                    "view app on Play Store",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.blue,
+                    ),
+                  ),
+                )
+              : const SizedBox()
         ],
       ),
     );

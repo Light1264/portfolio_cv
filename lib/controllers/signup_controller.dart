@@ -42,13 +42,12 @@ class SignUpController extends GetxController {
 
   Future<void> signUp() async {
     try {
-      print("got here");
       final requestData = {
         'username': nameController.text,
         'pwd': passwordController.text,
       };
       dynamic response = await ApiClient().signUp(requestData: requestData);
-      print("---------- response $response");
+
       if (response["success"].toString().contains("New")) {
         localStorage.write("isLoggedIn", true);
 
