@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_cv/main.dart';
-import 'package:portfolio_cv/screens/certificates.dart';
-import 'package:portfolio_cv/screens/home_page.dart';
-import 'package:portfolio_cv/screens/projects.dart';
-import 'package:portfolio_cv/screens/work_experience.dart';
+import 'package:portfolio_cv/screens/sidebar_menu_screens/certificates.dart';
+import 'package:portfolio_cv/screens/sidebar_menu_screens/projects.dart';
+import 'package:portfolio_cv/screens/sidebar_menu_screens/work_experience.dart';
+import 'package:portfolio_cv/widgets/dialog_widget.dart';
+
+import 'core/app_export.dart';
+import 'screens/sidebar_menu_screens/profile.dart';
 
 class SidebarMenu extends StatefulWidget {
+  const SidebarMenu({super.key});
+
   @override
   State<SidebarMenu> createState() => _SidebarMenuState();
 }
@@ -65,36 +70,14 @@ class _SidebarMenuState extends State<SidebarMenu> {
                       setState(() {
                         selectedIndex = index;
                       });
-                      print(selectedIndex);
                       if (index == 0) {
-                        Navigator.of(context).pop();
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: ((context) => MyHomePage()),
-                          ),
-                        );
+                        Get.off(MyHomePage());
                       } else if (index == 1) {
-                        Navigator.of(context).pop();
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: ((context) => ProjectsScreen()),
-                          ),
-                        );
+                        Get.off(ProjectsScreen());
                       } else if (index == 2) {
-                        Navigator.of(context).pop();
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: ((context) => CertificatesScreen()),
-                          ),
-                        );
-                      }
-                      else if (index == 3) {
-                        Navigator.of(context).pop();
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: ((context) => WorkExperienceScreen()),
-                          ),
-                        );
+                        Get.off(CertificatesScreen());
+                      } else if (index == 3) {
+                        Get.off(WorkExperienceScreen());
                       }
                     },
                     leading: sideBarIcons[index],
@@ -136,7 +119,11 @@ class _SidebarMenuState extends State<SidebarMenu> {
                   fontSize: 23,
                 ),
               ),
-              onTap: () {},
+              onTap: () {
+                showMyDialog(
+                  context,
+                );
+              },
             ),
           ),
           const SizedBox(

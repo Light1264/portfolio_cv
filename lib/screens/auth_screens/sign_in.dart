@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_cv/main.dart';
-import '../controllers/signin_controller.dart';
-import '../core/app_export.dart';
-import '../widgets/auth_textfield.dart';
+import '../../controllers/signin_controller.dart';
+import '../../core/app_export.dart';
+import '../../widgets/auth_textfield.dart';
 import 'sign_up.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -22,7 +22,7 @@ class _SignInScreenState extends State<SignInScreen> {
         child: Padding(
           padding: const EdgeInsets.all(24),
           child: Form(
-            key: _signInController.formFieldKey,
+            key: _signInController.formKey,
             child: Column(
               children: [
                 const SizedBox(
@@ -41,7 +41,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: 10,
                 ),
                 const Text(
-                  "Let's sign you in.",
+                  "Welcome",
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
@@ -61,7 +61,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 AuthTextField(
                   textFieldController: _signInController.nameController,
                   labelText: "Username",
-                  hintText: "Light",
+                  hintText: "Input your username",
                 ),
                 const SizedBox(
                   height: 24,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_cv/main.dart';
-import 'package:portfolio_cv/screens/home_page.dart';
 import 'package:portfolio_cv/utils/functions.dart';
 import '../core/app_export.dart';
+import '../screens/sidebar_menu_screens/profile.dart';
 import '../services/app_api_clent.dart';
 
 final apiClient = ApiClient();
@@ -13,7 +13,7 @@ class SignInController extends GetxController {
   final passwordController = TextEditingController();
 
   var isObscure = true.obs;
-  GlobalKey<FormFieldState> formFieldKey = GlobalKey();
+  GlobalKey<FormFieldState> formKey = GlobalKey();
 
   String? errorMessage;
   @override
@@ -30,21 +30,19 @@ class SignInController extends GetxController {
         passwordController.text.trim().isEmpty) {
       errorMethod('Email or Password can not be empty');
     } else {
-      login();
+      signIn();
     }
   }
 
-  Future<void> login() async {
+  Future<void> signIn() async {
     try {
-      //final headers = {'Authorization': 'I dont have'};
-      print("got here");
       final requestData = {
         'username': nameController.text,
         'pwd': passwordController.text,
       };
       dynamic response = await ApiClient().signIn(requestData: requestData);
-      print("---------- response $response");
-      if (response["user"]["email"] == nameController.text.trim()) {
+      // print("---------- response $response");
+      if (response["message"] == "Login Successful") {
         localStorage.write("isLoggedIn", true);
 
         nameController.clear();
@@ -52,11 +50,10 @@ class SignInController extends GetxController {
 
         Get.off(MyHomePage());
       } else {
-        print('fetching failed: $response');
         errorMethod('Email or Password Incorrect');
       }
     } catch (e) {
-      print('Error during login: $e');
+      errorMethod("$e");
     }
   }
 }

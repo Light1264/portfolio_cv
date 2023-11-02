@@ -3,7 +3,9 @@ import 'package:portfolio_cv/components/page_content.dart';
 import 'package:portfolio_cv/main.dart';
 import 'package:portfolio_cv/side_bar.dart';
 
-import '../components/image_page_content.dart';
+import '../../components/image_page_content.dart';
+import '../../core/app_export.dart';
+import '../../widgets/web_view.dart';
 
 class ProjectsScreen extends StatelessWidget {
   ProjectsScreen({
@@ -18,16 +20,34 @@ class ProjectsScreen extends StatelessWidget {
       imageAsset: imageConstants.hockeyGameApp,
       title: textConstants.hockeyGameAppHeader,
       description: 'This is the first page.',
+      textFunction: () {
+        Get.to(const ExploreWebview(
+          title: 'Terms of Service',
+          url: "https://github.com/hngx-org/team-giant-hockey",
+        ));
+      },
     ),
     ImagePageContent(
       imageAsset: imageConstants.aiStoryGenerator,
       title: textConstants.aiStoryGeneratorAppHeader,
       description: 'This is the second page.',
+      textFunction: () {
+        Get.to(const ExploreWebview(
+          title: 'Terms of Service',
+          url: "https://github.com/hngx-org/ai-story-generator",
+        ));
+      },
     ),
     ImagePageContent(
       imageAsset: imageConstants.eventPro,
       title: textConstants.eventProAppHeader,
       description: 'This is the third page.',
+      textFunction: () {
+        Get.to(const ExploreWebview(
+          title: 'Terms of Service',
+          url: "https://github.com/Light1264/EventPro/tree/master",
+        ));
+      },
     ),
     PageContent(title: "", description: "description"),
     PageContent(title: "", description: "description"),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_cv/screens/home_page.dart';
 import 'package:portfolio_cv/utils/functions.dart';
 import '../core/app_export.dart';
 import '../main.dart';
+import '../screens/sidebar_menu_screens/profile.dart';
 import '../services/app_api_clent.dart';
 
 final apiClient = ApiClient();
@@ -29,8 +29,12 @@ class SignUpController extends GetxController {
 
   validation() async {
     if (nameController.text.trim().isEmpty ||
-        passwordController.text.trim().isEmpty) {
+        passwordController.text.trim().isEmpty ||
+        confirmPasswordController.text.trim().isEmpty) {
       errorMethod('Email or Password can not be empty');
+    } else if (passwordController.text.trim() !=
+        confirmPasswordController.text.trim()) {
+      errorMethod('Password and confirm password are not the same');
     } else {
       signUp();
     }
@@ -38,7 +42,6 @@ class SignUpController extends GetxController {
 
   Future<void> signUp() async {
     try {
-      //final headers = {'Authorization': 'I dont have'};
       print("got here");
       final requestData = {
         'username': nameController.text,
@@ -46,7 +49,7 @@ class SignUpController extends GetxController {
       };
       dynamic response = await ApiClient().signUp(requestData: requestData);
       print("---------- response $response");
-      if (response["user"]["email"] == nameController.text.trim()) {
+      if (response["success"].toString().contains("New")) {
         localStorage.write("isLoggedIn", true);
 
         nameController.clear();
@@ -54,11 +57,10 @@ class SignUpController extends GetxController {
 
         Get.off(MyHomePage());
       } else {
-        print('fetching failed: $response');
         errorMethod('Email or Password Incorrect');
       }
     } catch (e) {
-      print('Error during login: $e');
+      errorMethod('$e');
     }
   }
 }

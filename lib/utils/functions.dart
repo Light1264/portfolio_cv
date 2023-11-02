@@ -6,7 +6,7 @@ errorMethod(String erorrMsg) {
   return Get.snackbar(
     backgroundColor: Colors.red,
     colorText: Colors.white,
-    "Error Occured",
+    "Alert",
     erorrMsg,
   );
 }

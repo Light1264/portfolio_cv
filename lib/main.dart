@@ -1,12 +1,11 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:portfolio_cv/screens/home_page.dart';
-import 'package:portfolio_cv/screens/sign_in.dart';
-import 'package:portfolio_cv/utils/constants.dart';
+import 'package:portfolio_cv/screens/auth_screens/sign_in.dart';
 import 'package:portfolio_cv/utils/text_constants.dart';
 
 import 'core/app_export.dart';
+import 'screens/sidebar_menu_screens/profile.dart';
 import 'services/network_info.dart';
 
 ColorConstants colorConstants = ColorConstants();
@@ -22,7 +21,7 @@ void main() async {
   // Register NetworkInfo with the Connectivity instance
   final networkInfo = NetworkInfo(connectivity);
   Get.put(networkInfo);
-  
+
   runApp(const MyApp());
 }
 
@@ -32,16 +31,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Portfolio CV',
-        theme: ThemeData(
-          colorScheme:
-              ColorScheme.fromSeed(seedColor: colorConstants.primaryColor),
-          useMaterial3: true,
-        ),
-        home: localStorage.read("isLoggedIn") == true
-            ? MyHomePage()
-            : const SignInScreen());
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Portfolio CV',
+      theme: ThemeData(
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: colorConstants.primaryColor),
+        useMaterial3: true,
+      ),
+      home: localStorage.read("isLoggedIn") == true
+          ? MyHomePage()
+          : const SignInScreen(),
+    );
   }
 }

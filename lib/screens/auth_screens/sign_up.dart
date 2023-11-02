@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_cv/main.dart';
-import '../controllers/signup_controller.dart';
-import '../core/app_export.dart';
-import '../widgets/auth_textfield.dart';
+import '../../controllers/signup_controller.dart';
+import '../../core/app_export.dart';
+import '../../widgets/auth_textfield.dart';
 import 'sign_in.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,23 +29,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: Column(
                 children: [
                   Center(
-                  child: Image.asset(
-                    imageConstants.myPrimaryLogo,
-                    scale: 4,
+                    child: Image.asset(
+                      imageConstants.myPrimaryLogo,
+                      scale: 4,
+                    ),
                   ),
-                ),
                   const SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    "Create an account",
+                  const Text(
+                    "Let's sign you up",
                     style: TextStyle(
                       fontSize: 36,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
-                    "Are you new here, inout your details\nto get start your stories journey",
+                  const Text(
+                    "Are you new here, input your details\nto gain access to my porfolio cv",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16,
@@ -111,7 +111,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           _signUpController.isObscureConfirmPassword.value
                               ? Icons.visibility_off
                               : Icons.visibility,
-                          color: colorConstants.primaryColor,
+                          color:
+                              _signUpController.isObscureConfirmPassword.value
+                                  ? Colors.grey
+                                  : colorConstants.primaryColor,
                           size: 20,
                         ),
                       ),
@@ -132,8 +135,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "Already have an account? ",
+                      const Text(
+                        "Already signed up? ",
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w400,

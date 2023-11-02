@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_cv/components/header_text.dart';
 import 'package:portfolio_cv/components/header_widget.dart';
+import 'package:portfolio_cv/core/app_export.dart';
 import 'package:portfolio_cv/main.dart';
 import 'package:portfolio_cv/side_bar.dart';
 import 'package:portfolio_cv/widgets/web_view.dart';
@@ -140,13 +141,10 @@ class MyHomePage extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => const ExploreWebview(
+                          Get.to(const ExploreWebview(
                                 title: 'Terms of Service',
                                 url: "https://github.com/Light1264",
-                              ),
-                            ),
+                              )
                           );
                         },
                         child: Container(

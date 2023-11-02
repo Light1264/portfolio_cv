@@ -30,7 +30,7 @@ class ApiClient extends GetConnect {
 
   /// Performs API call for https://userloginauth-vm0f.onrender.com/api/register
   ///
-  /// Sends a GET request to the server's 'https://userloginauth-vm0f.onrender.com/api/' endpoint
+  /// Sends a GET request to the server's 'https://userloginauth-vm0f.onrender.com/api/register' endpoint
   /// Returns a [signUpRes] object representing the response.
   /// Throws an error if the request fails or an exception occurs.
   Future<dynamic> signUp({
@@ -40,14 +40,14 @@ class ApiClient extends GetConnect {
     try {
       await isNetworkConnected();
       Response response = await httpClient.post(
-        "$url register",
+        "${url}register",
         body: requestData,
       );
       ProgressDialogUtils.hideProgressDialog();
       if (_isSuccessCall(response)) {
         return response.body;
       } else {
-        throw response.body != null ? response.body : 'Something Went Wrong!';
+        throw response.body ?? 'Something Went Wrong!';
       }
     } catch (error, stackTrace) {
       ProgressDialogUtils.hideProgressDialog();
@@ -59,9 +59,9 @@ class ApiClient extends GetConnect {
     }
   }
 
-  /// Performs API call for https://game-socket-a6hv.onrender.com/game-create
+  /// Performs API call for https://userloginauth-vm0f.onrender.com/api/auth
   ///
-  /// Sends a GET request to the server's 'https://game-socket-a6hv.onrender.com/game-create' endpoint
+  /// Sends a GET request to the server's 'https://userloginauth-vm0f.onrender.com/api/auth' endpoint
   /// Returns a [signInRes] object representing the response.
   /// Throws an error if the request fails or an exception occurs.
   Future<dynamic> signIn({
@@ -71,14 +71,14 @@ class ApiClient extends GetConnect {
     try {
       await isNetworkConnected();
       Response response = await httpClient.post(
-        "$url register",
+        "${url}auth",
         body: requestData,
       );
       ProgressDialogUtils.hideProgressDialog();
       if (_isSuccessCall(response)) {
         return response.body;
       } else {
-        throw response.body != null ? response.body : 'Something Went Wrong!';
+        throw response.body ?? 'Something Went Wrong!';
       }
     } catch (error, stackTrace) {
       ProgressDialogUtils.hideProgressDialog();
@@ -89,6 +89,4 @@ class ApiClient extends GetConnect {
       rethrow;
     }
   }
-
-  
 }

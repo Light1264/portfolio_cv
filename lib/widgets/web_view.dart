@@ -5,11 +5,12 @@ import 'dart:io';
 import '../main.dart';
 
 class ExploreWebview extends StatefulWidget {
-  const ExploreWebview({required this.url, required this.title});
+  const ExploreWebview({super.key, required this.url, required this.title});
   final String url;
   final String title;
+
   @override
-  _ExploreWebviewState createState() => _ExploreWebviewState();
+  State<ExploreWebview> createState() => _ExploreWebviewState();
 }
 
 class _ExploreWebviewState extends State<ExploreWebview> {
